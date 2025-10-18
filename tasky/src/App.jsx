@@ -1,6 +1,7 @@
 import './App.css';
 import Task from './components/Task';
 import React, { useState } from 'react';
+import AddTaskForm from './components/Form';
 
 function App() {
   const [taskState, setTaskState] = useState({
@@ -17,29 +18,28 @@ function App() {
     setTaskState({ tasks });
   };
 
-   const deleteHandler = (taskIndex) => {
-  const tasks = [...taskState.tasks];  
-  tasks.splice(taskIndex, 1);          
-  setTaskState({ tasks });             
-};
-
+  const deleteHandler = (taskIndex) => {
+    const tasks = [...taskState.tasks];  
+    tasks.splice(taskIndex, 1);          
+    setTaskState({ tasks });             
+  };
 
   return (
     <div className="container">
       <h1>Tasky</h1>
       {taskState.tasks.map((task, index) => (
-  <Task
-    key={task.id}
-    title={task.title}
-    description={task.description}
-    deadline={task.deadline}
-    priority={task.priority}
-    done={task.done}
-    markDone={() => doneHandler(index)}
-    deleteTask={() => deleteHandler(index)}  // <- added line
-  />
-))}
-
+        <Task
+          key={task.id}
+          title={task.title}
+          description={task.description}
+          deadline={task.deadline}
+          priority={task.priority}
+          done={task.done}
+          markDone={() => doneHandler(index)}
+          deleteTask={() => deleteHandler(index)} 
+        />
+      ))}
+      <AddTaskForm />
     </div>
   );
 }
