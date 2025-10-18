@@ -1,8 +1,11 @@
+
 body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
+  margin: 0;
 }
+
 
 h1 {
   text-align: center;
@@ -14,12 +17,9 @@ h1 {
   border-radius: 4px;
 }
 
-div {
-  padding: 20px;
-}
-
 .container {
   text-align: center;
+  padding: 20px;
 }
 
 .card {
@@ -34,11 +34,15 @@ div {
   margin: 10px;
   padding: 10px;
   position: relative;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
 }
+
 
 .title {
   font-weight: bold;
-  font-size: 1.2em; 
+  font-size: 1.2em;
+  margin-bottom: 5px;
 }
 
 .description {
@@ -51,3 +55,24 @@ div {
   height: 80px;
   text-align: left;
 }
+
+
+button {
+  border: none;
+  border-radius: 3px;
+  font-style: italic;
+  font-size: 0.8em;
+  width: 50px;
+  height: 25px;
+  cursor: pointer;
+}
+
+
+.doneButton {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  color: green;
+  background-color: white;
+}
+
