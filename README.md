@@ -1,2 +1,4 @@
 # react-labs-bw
-react labs new
+
+labs for web app development
+
