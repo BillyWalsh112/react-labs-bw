@@ -16,7 +16,8 @@ function App() {
   const [formState, setFormState] = useState({
     title: "",
     description: "",
-    deadline: ""
+    deadline: "",
+    priority: "Low"
   });
 
   const doneHandler = (taskIndex) => {
@@ -26,15 +27,15 @@ function App() {
   };
 
   const deleteHandler = (taskIndex) => {
-    const tasks = [...taskState.tasks];  
-    tasks.splice(taskIndex, 1);          
-    setTaskState({ tasks });             
+    const tasks = [...taskState.tasks];
+    tasks.splice(taskIndex, 1);
+    setTaskState({ tasks });
   };
 
   const formChangeHandler = (event) => {
-    let form = {...formState};
+    let form = { ...formState };
 
-    switch(event.target.name) {
+    switch (event.target.name) {
       case "title":
         form.title = event.target.value;
         break;
@@ -43,6 +44,9 @@ function App() {
         break;
       case "deadline":
         form.deadline = event.target.value;
+        break;
+      case "priority":
+        form.priority = event.target.value;
         break;
       default:
         form = formState;
@@ -56,10 +60,9 @@ function App() {
     event.preventDefault();
 
     const tasks = [...taskState.tasks];
-    const form = {...formState};
+    const form = { ...formState };
 
     form.id = uuidv4();
-    form.priority = "Low";
     form.done = false;
 
     tasks.push(form);
@@ -78,7 +81,7 @@ function App() {
           priority={task.priority}
           done={task.done}
           markDone={() => doneHandler(index)}
-          deleteTask={() => deleteHandler(index)} 
+          deleteTask={() => deleteHandler(index)}
         />
       ))}
       <AddTaskForm submit={formSubmitHandler} change={formChangeHandler} />
